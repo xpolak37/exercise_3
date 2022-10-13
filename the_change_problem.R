@@ -26,3 +26,22 @@ CZKChange <- function(M) {
 }
 
 number_of_coins <- CZKChange(68)
+
+
+CZKChange2 <- function(M,array_of_coins) {
+  sum <- 0
+  how_many <- length(array_of_coins)
+  my_list <- rep(0,how_many)
+  i <- 1
+  while (M > 0){
+    if (M >= array_of_coins[i]){
+      num <-  floor(M/array_of_coins[i])
+      M <- M - array_of_coins[i]*num
+      my_list[i] <- num
+    }
+    i <- i +1
+  }
+  return(my_list)
+}
+
+list <- CZKChange2(68,c(50,20,10,5,2,1))
